@@ -1,199 +1,128 @@
-<!-- Background Accent -->
-<div class="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-blue-500/5 to-transparent pointer-events-none"></div>
-
-<!-- Header Navigation -->
-<header class="sticky top-0 bg-[#0d1117]/80 backdrop-blur-md border-b border-[#30363d]/50 z-30">
-    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-white transition-all hover:bg-white/5 px-3 py-1.5 rounded-lg border border-transparent hover:border-[#30363d]/40">
-            <i data-lucide="arrow-left" id="back-icon" class="w-4 h-4"></i>
-            <span id="txt-back">Main Hub</span>
-        </a>
-        
-        <button onclick="toggleLang()" class="flex items-center gap-2 text-xs text-blue-400 hover:text-blue-300 font-bold transition-all bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-lg cursor-pointer">
-            <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-            <span id="txt-lang-btn">العربية</span>
-        </button>
-    </div>
-</header>
-
-<!-- Main Privacy Content -->
-<main class="flex-1 max-w-3xl w-full mx-auto px-4 py-8 relative z-10 flex flex-col gap-8 pb-20" id="privacy-container">
-    <!-- Injected via Script -->
-</main>
-
-<!-- Footer -->
-<footer class="mt-auto border-t border-[#30363d]/50 bg-[#161b22]/40 py-6 relative z-10 text-center">
-    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#9ca3af]">
-        <p>© <span id="current-year">2026</span> Veonb Shield & BlockBot. All Rights Reserved.</p>
-        <p class="flex items-center gap-1">
-            <span id="txt-footer-made">Made with</span>
-            <i data-lucide="heart" class="w-3 h-3 text-red-500 fill-red-500"></i>
-            <span id="txt-footer-for">for secure community servers</span>
-        </p>
-    </div>
-</footer>
-
-<script>
-    let currentLang = localStorage.getItem('bot_lang') || 'en';
-    const botName = 'Veonb Shield & BlockBot';
-
-    const privacyData = {
-        en: {
-            backBtn: "Back to Hub",
-            lastUpdated: "Last updated:",
-            dateStr: "June 11, 2026",
-            headerTitle: "Privacy Policy for " + botName,
-            intro: "We take the privacy and security of our users very seriously. This page clearly drafts how the bot handles, protects, and utilizes data to deliver our advanced automation, block systems, and real-time protection shields.",
-            
-            sec1Title: "1. The Data We Collect & Store",
-            sec1Desc: "To operate our fully automated moderation and shield systems, the bot ONLY stores minimum descriptive metadata in our secure MongoDB database:",
-            sec1Bullets: [
-                "Discord User IDs: Required to uniquely identify members and manage their active ban/block states.",
-                "Discord Role IDs: Used to accurately preserve and restore their original roles once punishment ends.",
-                "Log IDs & Punishment Logs: Kept to document active and historic action audits for server administrators."
-            ],
-
-            sec2Title: "2. Crucial Note on Message Content",
-            sec2Desc: "The bot temporarily processes deleted message content strictly and in real-time to relay it to the secure internal backup logging channels within your Discord server.",
-            sec2Highlight: "CRUCIAL NOTE: Absolutely NO message content is ever saved, extracted, or stored in our MongoDB or any external databases. Native text processing is transient, staying only in warm memory, and is discarded immediately after transmitting to your server.",
-
-            sec3Title: "3. How We Use the Data",
-            sec3Desc: "Stored descriptive metadata is strictly restricted to facilitating the server safety automation workflows:",
-            sec3Points: [
-                { title: "Temporary Punishment Lifecycles:", text: "Tracking block durations and expiration intervals so the bot can automatically restore the user's original server permissions at the exact scheduled timestamp without human intervention." },
-                { title: "Anti-Abuse Shield System:", text: "Monitoring server-side role changes in real-time to detect, rollback, and prevent any unauthorized manual role adjustments bypasses." }
-            ],
-
-            sec4Title: "4. Data Storage & Security",
-            sec4Desc: "All logged metadata resides safely within isolated sandboxes adhering to industry-leading standards:",
-            sec4Bullets: [
-                "We DO NOT (and will never) use collected metadata to train artificial intelligence (AI) models.",
-                "We never sell, trade, rent, or share server metadata with any third parties.",
-                "Access to the MongoDB database is strictly private and authenticated exclusively for automated software operations."
-            ],
-
-            sec5Title: "5. User Rights & Data Removal",
-            sec5Desc: "We support your digital footprint ownership and right to clear personal telemetry:",
-            sec5Bullets: [
-                "Users and server administrators can request continuous, permanent deletion of their metadata and logs at any point free of charge.",
-                "To submit a swift data purging request, simply contact the verified bot developer directly via Discord."
-            ]
-        },
-        ar: {
-            backBtn: "العودة للرئيسية",
-            lastUpdated: "آخر تحديث:",
-            dateStr: "١١ يونيو ٢٠٢٦",
-            headerTitle: "سياسة الخصوصية لبوت " + botName,
-            intro: "نحن نأخذ خصوصية مستخدمينا وأمان بياناتهم بجدية تامة. توضح هذه الصفحة بوضوح وشفافية البيانات التي يتعامل معها البوت وكيفية حمايتها واستخدامها لتقديم نظام أتمتة العقوبات والدرع (Shield) بكفاءة.",
-            
-            sec1Title: "١. البيانات التي نجمعها ونخزنها",
-            sec1Desc: "لتشغيل نظام الحماية وإدارة البلوك بشكل مؤتمت بالكامل، يقوم البوت بتخزين الحد الأدنى فقط من البيانات التعريفية (Metadata) في قاعدة بيانات MongoDB الآمنة الخاصة بنا:",
-            sec1Bullets: [
-                "معرفات مستخدمي ديسكورد (Discord User IDs) لتحديد الأعضاء وتتبع حالات البلوك الخاصة بهم.",
-                "معرفات رتب ديسكورد (Role IDs) لاسترجاع وحفظ رتب الأعضاء المعاقبين بدقة.",
-                "معرفات السجلات وسجلات العقوبات (Log IDs) لتوثيق وتسهيل مراجعة العقوبات من طرف الإدارة."
-            ],
-
-            sec2Title: "٢. تنبيه هام جداً بخصوص محتوى الرسائل المحذوفة",
-            sec2Desc: "يقوم البوت بمعالجة محتوى الرسائل المحذوفة بشكل مؤقت وفوري فقط لإعادة توجيهها وإرسالها إلى خط السجلات الآمن (Backup Log Channel) داخل خادم الديسكورد الخاص بك لغرض الحماية والتوثيق.",
-            sec2Highlight: "نؤكد بشكل قاطع: لا يتم تخزين، حفظ، أو استخراج أي محتوى للرسائل على الإطلاق في قواعد بيانات MongoDB الخاصة بنا أو أي خوادم خارجية. المعالجة تتم في الذاكرة المؤقتة وتزول مباشرة فور تسليم الرسالة للقناة المحددة.",
-
-            sec3Title: "٣. كيف نستخدم هذه البيانات",
-            sec3Desc: "نحن نستخدم البيانات الوصفية المخزنة حصرياً للأغراض التشغيلية التالية للخدمات المشتركة داخل خادمك:",
-            sec3Points: [
-                { title: "دورة حياة العقوبات المؤقتة (Temporary Punishment Lifecycles):", text: "تتبع مدة البلوك وتاريخ الانتهاء المجدول، لكي يتمكن البوت تلقائياً من فك الحظر وإعادة رتب المستخدم الأصلية بمجرد انتهاء المدة بدون تدخل بشري." },
-                { title: "نظام الدرع للحماية من التلاعب (Anti-Abuse Shield System):", text: "مراقبة تحديثات الرتب في الخادم بشكل فوري لكشف ومنع أي محاولات يدوية غير مصرح بها لتخطي العقوبات أو إعادة الرتب يدوياً دون إذن لوحة التحكم." }
-            ],
-
-            sec4Title: "٤. تخزين البيانات وأمانها",
-            sec4Desc: "تخضع جميع البيانات الوصفية المخزنة في خوادمنا لتدابير حماية وأمان عالية:",
-            sec4Bullets: [
-                "لا يتم ولا يمكن استخدام بياناتك أبداً لتدريب أي نماذج ذكاء اصطناعي (AI Models).",
-                "نحن لا نبيع، ولا نؤجر، ولا نشارك أي بيانات مخزنة مع أي طرف ثالث على الإطلاق.",
-                "الوصول للقاعدة مشفر ومحصور فقط بنظام البوت للقيام بمهام الحماية التلقائية."
-            ],
-
-            sec5Title: "٥. حقوق المستخدم وحذف البيانات",
-            sec5Desc: "نحن ندعم حقك الكامل في الخصوصية والتحكم في بياناتك الرقمية:",
-            sec5Bullets: [
-                "يمكن للأعضاء ومسؤولي الخوادم في أي وقت طلب حذف كافة البيانات الوصفية والسجلات الخاصة بهم من قاعدة البيانات.",
-                "لطلب الحذف الفوري لبياناتك، يرجى التواصل مباشرة مع المطور المسؤول عبر حساب الديسكورد الخاص به."
-            ]
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - BlockBot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0b0f19',
+            'bg-secondary': '#111827',
+            'bg-card': '#1f2937',
+            'text-primary': '#f9fafb',
+            'text-secondary': '#9ca3af',
+            'accent': '#6366f1',
+            'accent-hover': '#4f46e5',
+            'danger': '#ef4444',
+            'border': '#374151'
+          }
         }
-    };
-
-    function renderPrivacy() {
-        const root = document.getElementById('html-root');
-        root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-        root.setAttribute('lang', currentLang);
-
-        const t = privacyData[currentLang];
-        document.getElementById('txt-lang-btn').innerText = currentLang === 'en' ? 'العربية' : 'English';
-        document.getElementById('txt-back').innerText = t.backBtn;
-        document.getElementById('back-icon').setAttribute('data-lucide', currentLang === 'ar' ? 'arrow-right' : 'arrow-left');
-
-        let pB1 = t.sec1Bullets.map(b => `<li class="flex gap-2.5 items-start text-sm text-[#9ca3af]"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i><span>${b}</span></li>`).join('');
-        let pPts = t.sec3Points.map(pt => `
-            <div class="p-4 bg-[#21262d] rounded-xl border border-[#30363d]/40 flex flex-col gap-2">
-                <h3 class="text-sm font-bold text-white flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span>${pt.title}</span></h3>
-                <p class="text-xs text-[#9ca3af] leading-relaxed">${pt.text}</p>
-            </div>
-        `).join('');
-        let pB4 = t.sec4Bullets.map(b => `<li class="flex gap-2.5 items-start text-sm text-[#9ca3af]"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i><span>${b}</span></li>`).join('');
-        let pB5 = t.sec5Bullets.map(b => `<li class="flex gap-2.5 items-start text-sm text-[#9ca3af]"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i><span>${b}</span></li>`).join('');
-
-        document.getElementById('privacy-container').innerHTML = `
-            <div class="text-center md:text-right flex flex-col gap-3">
-                <div class="w-12 h-12 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto md:mx-0 mb-2 border border-blue-500/30 text-blue-400">
-                    <i data-lucide="shield-check" class="w-6 h-6"></i>
-                </div>
-                <h1 class="text-3xl font-extrabold text-white tracking-tight leading-relaxed">${t.headerTitle}</h1>
-                <p class="text-sm text-[#9ca3af] flex items-center justify-center md:justify-start gap-1.5">
-                    <span class="font-semibold">${t.lastUpdated}</span>
-                    <span class="text-white/80 font-mono text-xs">${t.dateStr}</span>
-                </p>
-                <p class="text-sm text-[#9ca3af] leading-relaxed bg-[#161b22]/40 p-4 rounded-xl border border-[#30363d]/30 mt-3">${t.intro}</p>
-            </div>
-
-            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-400"></i><span>${t.sec1Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec1Desc}</p>
-                <ul class="flex flex-col gap-3">${pB1}</ul>
-            </div>
-
-            <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 shadow-sm flex flex-col gap-4 relative overflow-hidden">
-                <h2 class="text-lg font-bold text-red-400 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 animate-pulse"></i><span>${t.sec2Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec2Desc}</p>
-                <div class="p-4 bg-red-500/10 border-l-4 border-red-500/50 rounded-lg text-sm text-white/90 font-medium leading-relaxed">${t.sec2Highlight}</div>
-            </div>
-
-            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="shield" class="w-4 h-4 text-blue-400"></i><span>${t.sec3Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec3Desc}</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">${pPts}</div>
-            </div>
-
-            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i><span>${t.sec4Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec4Desc}</p>
-                <ul class="flex flex-col gap-3">${pB4}</ul>
-            </div>
-
-            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="trash-2" class="w-4 h-4 text-blue-400"></i><span>${t.sec5Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec5Desc}</p>
-                <ul class="flex flex-col gap-3">${pB5}</ul>
-            </div>
-        `;
-        lucide.createIcons();
+      }
     }
+  </script>
+</head>
+<body class="min-h-screen bg-[#0b0f19] text-[#f9fafb] font-sans flex flex-col selection:bg-indigo-500/30">
+  
+  <!-- Header Nav -->
+  <header class="sticky top-0 bg-[#0b0f19]/80 backdrop-blur-md border-b border-gray-800 z-30">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-all bg-white/5 px-3 py-1.5 rounded-lg border border-transparent hover:border-gray-700">
+        <span>← Back to Home</span>
+      </a>
+      <span class="text-xs font-mono text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1.5 rounded-lg">
+        Privacy Policy
+      </span>
+    </div>
+  </header>
 
-    function toggleLang() {
-        currentLang = currentLang === 'en' ? 'ar' : 'en';
-        localStorage.setItem('bot_lang', currentLang);
-        renderPrivacy();
-    }
+  <!-- Main Content -->
+  <main class="flex-1 max-w-3xl w-full mx-auto px-4 py-8 flex flex-col gap-8 pb-20">
+    <div class="text-left flex flex-col gap-3">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight leading-relaxed">
+        Privacy Policy for BlockBot
+      </h1>
+      <p class="text-sm text-gray-400">
+        <span class="font-semibold">Last updated:</span> <span class="text-white/80 font-mono text-xs">June 11, 2026</span>
+      </p>
+      <p class="text-sm text-gray-300 leading-relaxed bg-gray-900/40 p-4 rounded-xl border border-gray-800 mt-3">
+        We take the privacy and security of our users very seriously. This page clearly drafts how the bot handles, protects, and utilizes data to deliver our advanced automation, block systems, and real-time protection shields.
+      </p>
+    </div>
 
-    document.getElementById('current-year').innerText = new Date().getFullYear();
-    renderPrivacy();
-</script>
+    <!-- Section 1 -->
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        <span class="text-indigo-400">1.</span> The Data We Collect & Store
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        To operate our fully automated moderation and shield systems, the bot ONLY stores minimum descriptive metadata in our secure MongoDB database:
+      </p>
+      <ul class="flex flex-col gap-3 text-sm text-gray-300">
+        <li class="flex gap-2.5 items-start">✓ Discord User IDs: Required to uniquely identify members and manage their active ban/block states.</li>
+        <li class="flex gap-2.5 items-start">✓ Discord Role IDs: Used to accurately preserve and restore their original roles once punishment ends.</li>
+        <li class="flex gap-2.5 items-start">✓ Log IDs & Punishment Logs: Kept to document active and historic action audits for server administrators.</li>
+      </ul>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 shadow-sm flex flex-col gap-4 relative overflow-hidden">
+      <h2 class="text-lg font-bold text-red-400 flex items-center gap-2">
+        ⚠️ 2. Crucial Note on Message Content
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        The bot temporarily processes deleted message content strictly and in real-time to relay it to the secure internal backup logging channels within your Discord server.
+      </p>
+      <div class="p-4 bg-red-500/10 border-l-4 border-red-500/50 rounded-lg text-sm text-white/90 font-medium leading-relaxed">
+        CRUCIAL NOTE: Absolutely NO message content is ever saved, extracted, or stored in our MongoDB or any external databases. Native text processing is transient, staying only in warm memory, and is discarded immediately after transmitting to your server.
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        <span class="text-indigo-400">3.</span> How We Use the Data
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        Stored descriptive metadata is strictly restricted to facilitating the server safety automation workflows:
+      </p>
+      <ul class="flex flex-col gap-3 text-sm text-gray-300">
+        <li class="flex gap-2.5 items-start">• <b>Temporary Punishment Lifecycles:</b> Tracking block durations and expiration intervals so the bot can automatically restore original server permissions.</li>
+        <li class="flex gap-2.5 items-start">• <b>Anti-Abuse Shield System:</b> Monitoring server-side role changes in real-time to detect, rollback, and prevent unauthorized manual adjustments.</li>
+      </ul>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        <span class="text-indigo-400">4.</span> Data Storage & Security
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        All logged metadata resides safely within isolated environments:
+      </p>
+      <ul class="flex flex-col gap-3 text-sm text-gray-300">
+        <li class="flex gap-2.5 items-start">✓ We DO NOT use collected metadata to train artificial intelligence (AI) models.</li>
+        <li class="flex gap-2.5 items-start">✓ We never sell, trade, rent, or share server metadata with third parties.</li>
+      </ul>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        <span class="text-indigo-400">5.</span> User Rights & Data Removal
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        Users and server administrators can request continuous, permanent deletion of their metadata and logs at any point free of charge by contacting the developer via Discord.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-gray-800 bg-gray-900/40 py-6 text-center text-xs text-gray-400">
+    <p>© 2026 BlockBot. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
