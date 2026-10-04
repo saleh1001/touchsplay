@@ -1,215 +1,199 @@
-<!doctype html>
-<html lang="en" dir="ltr" data-title-en="Privacy Policy · Touch'sPlay" data-title-ar="سياسة الخصوصية · Touch'sPlay">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy · Touch'sPlay</title>
-<meta name="description" content="Privacy Policy · Touch'sPlay — Touch'sPlay, a free public music bot for Discord.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' aria-hidden='true'%3E%3Crect width='32' height='32' rx='9' fill='%235046e5'/%3E%3Cpath d='M13 21.5V10.2l9-2v11' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='10.6' cy='21.6' r='2.6' fill='white'/%3E%3Ccircle cx='19.6' cy='19.2' r='2.6' fill='white'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#f7f7fb; --surface:#ffffff; --text:#1c1c28; --muted:#5f6172; --line:#e3e4ee;
-  --accent:#5046e5; --accent-soft:#eeedfd; --head:#ffffffcc;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#111218; --surface:#1a1b24; --text:#ececf3; --muted:#a3a5b8; --line:#2c2d3a;
-    --accent:#a5a0ff; --accent-soft:#25244a; --head:#111218cc;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#111218; --surface:#1a1b24; --text:#ececf3; --muted:#a3a5b8; --line:#2c2d3a;
-  --accent:#a5a0ff; --accent-soft:#25244a; --head:#111218cc;
-  color-scheme: dark;
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);
-  font-family:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  font-size:16.5px;line-height:1.75}
-a{color:var(--accent);text-underline-offset:3px}
-header{position:sticky;top:0;z-index:5;background:var(--head);backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{max-width:820px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--text);text-decoration:none;font-size:17px}
-.brand svg{width:30px;height:30px;flex:none}
-nav{display:flex;gap:4px;margin-inline-start:auto;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;font-size:15px}
-nav a:hover{color:var(--text);background:var(--accent-soft)}
-nav a[aria-current="page"]{color:var(--accent);background:var(--accent-soft);font-weight:600}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
-.lang button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);
-  padding:3px 12px;border-radius:999px;cursor:pointer;line-height:1.6}
-.lang button[aria-pressed="true"]{background:var(--accent);color:#fff}
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .lang button[aria-pressed="true"]{color:#111218} }
-:root[data-theme="dark"] .lang button[aria-pressed="true"]{color:#111218}
-main{max-width:820px;margin:0 auto;padding:40px 16px 24px}
-article{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:40px 44px}
-h1{font-size:34px;line-height:1.25;margin:0 0 6px;letter-spacing:-.01em}
-h2{font-size:20px;line-height:1.4;margin:36px 0 8px;padding-top:4px}
-p{margin:0 0 14px}
-.meta{color:var(--muted);font-size:14.5px;margin-bottom:24px}
-.lead{font-size:17.5px}
-.muted{color:var(--muted);font-weight:400;font-size:14px}
-.table-wrap{overflow-x:auto;margin:16px 0 18px;border:1px solid var(--line);border-radius:12px}
-table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
-th,td{text-align:start;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
-th{background:var(--accent-soft);font-weight:600;font-size:14px}
-tr:last-child td{border-bottom:0}
-td:first-child{width:30%}
-.hero{padding:8px 0 8px}
-.hero h1{font-size:40px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:28px}
-.card{display:flex;flex-direction:column;gap:4px;padding:20px;border:1px solid var(--line);border-radius:14px;
-  background:var(--bg);text-decoration:none;color:var(--text);transition:border-color .15s, transform .15s}
-.card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.card-title{font-weight:700;font-size:17px;color:var(--accent)}
-.card-sub{color:var(--muted);font-size:14.5px;line-height:1.6}
-footer{max-width:820px;margin:0 auto;padding:8px 16px 40px;color:var(--muted);font-size:14px;
-  display:flex;gap:16px;flex-wrap:wrap}
-footer a{color:var(--muted)}
-[hidden]{display:none!important}
-@media (max-width:640px){
-  main{padding-top:20px}
-  article{padding:26px 18px;border-radius:14px}
-  h1{font-size:28px} .hero h1{font-size:32px}
-  nav{margin-inline-start:0;order:3;width:100%}
-  .lang{margin-inline-start:auto}
-}
-</style>
-</head>
-<body>
-<header><div class="bar">
-<a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--accent)"/>
-<path d="M13 21.5V10.2l9-2v11" fill="none" stroke="var(--surface)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="10.6" cy="21.6" r="2.6" fill="var(--surface)"/><circle cx="19.6" cy="19.2" r="2.6" fill="var(--surface)"/></svg><span>Touch'sPlay</span></a>
-<nav data-lang="en" aria-label="Pages"><a href="index.html">Home</a><a href="terms.html">Terms of Service</a><a href="privacy.html" aria-current="page">Privacy Policy</a></nav><nav data-lang="ar" hidden aria-label="الصفحات"><a href="index.html">الرئيسية</a><a href="terms.html">شروط الخدمة</a><a href="privacy.html" aria-current="page">سياسة الخصوصية</a></nav>
-<div class="lang" role="group" aria-label="Language / اللغة">
-<button type="button" data-set-lang="ar" aria-pressed="false" lang="ar">العربية</button>
-<button type="button" data-set-lang="en" aria-pressed="true" lang="en">English</button>
-</div>
-</div></header>
-<main>
-<article data-lang="en" lang="en" dir="ltr">
-<h1>Privacy Policy</h1>
-<p class="meta">Last updated: September 24, 2026</p>
+<!-- Background Accent -->
+<div class="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-blue-500/5 to-transparent pointer-events-none"></div>
 
-<p class="lead">Touch'sPlay (“the Bot”, “we”, “us”) is a free, public Discord music bot that anyone can add to their server and use. This policy explains what data the Bot handles, why it needs it, how long it keeps it, and how you can ask for it to be deleted. By adding the Bot to a server or using its commands, you agree to this policy.</p>
+<!-- Header Navigation -->
+<header class="sticky top-0 bg-[#0d1117]/80 backdrop-blur-md border-b border-[#30363d]/50 z-30">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-white transition-all hover:bg-white/5 px-3 py-1.5 rounded-lg border border-transparent hover:border-[#30363d]/40">
+            <i data-lucide="arrow-left" id="back-icon" class="w-4 h-4"></i>
+            <span id="txt-back">Main Hub</span>
+        </a>
+        
+        <button onclick="toggleLang()" class="flex items-center gap-2 text-xs text-blue-400 hover:text-blue-300 font-bold transition-all bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-lg cursor-pointer">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+            <span id="txt-lang-btn">العربية</span>
+        </button>
+    </div>
+</header>
 
-<h2>1. Data we collect</h2>
-<p>The Bot only handles the minimum data it needs to play music. Nothing else is collected.</p>
-<div class="table-wrap">
-<table>
-  <thead><tr><th>Data</th><th>Why we need it</th><th>How long we keep it</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Server (guild) ID</strong></td><td>To know which server the Bot is working in and keep its queue and settings separate from other servers.</td><td>While the Bot is in your server. Deleted automatically when the Bot is removed.</td></tr>
-    <tr><td><strong>Channel IDs</strong></td><td>To join the right voice channel and reply in the text channel where the command was used.</td><td>While the Bot is in your server. Deleted automatically when the Bot is removed.</td></tr>
-    <tr><td><strong>Song request data</strong><br><span class="muted">(song name, link or search query, and track details such as title and duration)</span></td><td>To find the track, build the queue and play it.</td><td>Temporarily, in memory only. Deleted when the queue ends, playback stops, or the Bot leaves the voice channel.</td></tr>
-  </tbody>
-</table>
-</div>
-<p>While a track is playing, the Bot may also use the Discord user ID of the person who requested it, for example to show who added a song. This is processed in memory only and is never saved.</p>
-
-<h2>2. Data we do not collect</h2>
-<p>The Bot does not store your messages, usernames, avatars, email addresses, IP addresses or any payment information. It does <strong>not</strong> record, listen to or store any voice or audio from voice channels. It does not build profiles, track you across servers, or use your data for advertising.</p>
-
-<h2>3. How we use data</h2>
-<p>Data is used only to provide the Bot’s music features: joining voice channels, finding and playing tracks, managing the queue, and replying to commands. We do not sell, rent or trade any data.</p>
-
-<h2>4. Third parties</h2>
-<p>The Bot runs on Discord, so your use of it is also covered by <a href="https://discord.com/privacy" rel="noopener">Discord’s Privacy Policy</a>. To play music, the song name, link or search query you submit is sent to the music source the Bot uses to find and stream the track. Those services are run by third parties and have their own privacy policies. We do not share your data with anyone else.</p>
-
-<h2>5. Data security</h2>
-<p>We take reasonable steps to protect the small amount of data the Bot handles. Access to the Bot’s systems is limited to its developer. No method of storage or transmission is 100% secure, but because song data is kept only in memory and server data is deleted on removal, very little is ever held.</p>
-
-<h2>6. Deleting your data</h2>
-<p>Server administrators can remove the Bot from their server at any time, which automatically deletes that server’s ID and channel IDs. Song request data is already deleted when playback ends. If you have questions or want to request deletion of any data, contact us through our support server (link below) and we will respond as soon as possible, and within 30 days at most.</p>
-
-<h2>7. Age requirement</h2>
-<p>The Bot is intended for people who meet Discord’s minimum age requirement in their country. We do not knowingly collect any data from anyone beyond what is described in this policy.</p>
-
-<h2>8. Changes to this policy</h2>
-<p>We may update this policy from time to time. When we do, we will change the “Last updated” date at the top and announce important changes in our support server. Continuing to use the Bot after a change means you accept the updated policy.</p>
-
-<h2>9. Contact</h2>
-<p>For any questions about this policy or your data, join our support server: <a class="support-link" href="https://discord.gg/touch-s" rel="noopener">https://discord.gg/touch-s</a></p>
-</article>
-<article data-lang="ar" lang="ar" dir="rtl" hidden>
-<h1>سياسة الخصوصية</h1>
-<p class="meta">آخر تحديث: 24 سبتمبر 2026</p>
-
-<p class="lead">‏Touch'sPlay (ويُشار إليه بـ«البوت») هو بوت موسيقى عام ومجاني على ديسكورد، يقدر أي شخص يضيفه لسيرفره ويستخدمه. توضّح هذه السياسة البيانات التي يتعامل معها البوت، وسبب حاجته إليها، ومدة الاحتفاظ بها، وكيف تطلب حذفها. بإضافتك للبوت إلى سيرفر أو استخدامك لأوامره، فأنت توافق على هذه السياسة.</p>
-
-<h2>1. البيانات التي نجمعها</h2>
-<p>لا يتعامل البوت إلا مع أقل قدر من البيانات يحتاجه لتشغيل الموسيقى، ولا يجمع أي شيء غير ذلك.</p>
-<div class="table-wrap">
-<table>
-  <thead><tr><th>البيان</th><th>سبب الحاجة إليه</th><th>مدة الاحتفاظ</th></tr></thead>
-  <tbody>
-    <tr><td><strong>معرّف السيرفر (Server ID)</strong></td><td>لمعرفة السيرفر الذي يعمل فيه البوت، وفصل قائمة التشغيل والإعدادات عن باقي السيرفرات.</td><td>طوال وجود البوت في سيرفرك، ويُحذف تلقائياً عند إزالة البوت.</td></tr>
-    <tr><td><strong>معرّفات الرومات (Channel IDs)</strong></td><td>للدخول إلى الروم الصوتي الصحيح، والرد في الروم الكتابي الذي استُخدم فيه الأمر.</td><td>طوال وجود البوت في سيرفرك، وتُحذف تلقائياً عند إزالة البوت.</td></tr>
-    <tr><td><strong>بيانات طلبات الأغاني</strong><br><span class="muted">(اسم الأغنية أو رابطها أو نص البحث، وتفاصيل المقطع مثل العنوان والمدة)</span></td><td>للبحث عن المقطع وإضافته لقائمة التشغيل وتشغيله.</td><td>مؤقتاً في الذاكرة فقط، وتُحذف عند انتهاء قائمة التشغيل أو إيقاف التشغيل أو خروج البوت من الروم الصوتي.</td></tr>
-  </tbody>
-</table>
-</div>
-<p>أثناء تشغيل المقطع، قد يستخدم البوت معرّف حساب ديسكورد للشخص الذي طلب الأغنية، مثلاً لعرض اسم من أضافها. تتم معالجة هذا المعرّف في الذاكرة فقط ولا يُحفظ أبداً.</p>
-
-<h2>2. البيانات التي لا نجمعها</h2>
-<p>لا يحفظ البوت رسائلك، ولا أسماء المستخدمين، ولا الصور الشخصية، ولا البريد الإلكتروني، ولا عناوين IP، ولا أي معلومات دفع. ولا يقوم البوت <strong>إطلاقاً</strong> بتسجيل أو الاستماع إلى أو حفظ أي صوت أو محادثة من الرومات الصوتية. كما لا يبني ملفات تعريفية عنك، ولا يتتبعك بين السيرفرات، ولا يستخدم بياناتك لأغراض إعلانية.</p>
-
-<h2>3. كيف نستخدم البيانات</h2>
-<p>تُستخدم البيانات فقط لتقديم خدمات الموسيقى في البوت: الدخول إلى الرومات الصوتية، والبحث عن المقاطع وتشغيلها، وإدارة قائمة التشغيل، والرد على الأوامر. ولا نبيع أي بيانات ولا نؤجرها ولا نتاجر بها.</p>
-
-<h2>4. الأطراف الثالثة</h2>
-<p>يعمل البوت على منصة ديسكورد، لذلك يخضع استخدامك له أيضاً لـ<a href="https://discord.com/privacy" rel="noopener">سياسة خصوصية ديسكورد</a>. ولتشغيل الموسيقى، يُرسَل اسم الأغنية أو رابطها أو نص البحث الذي تكتبه إلى مصدر الموسيقى الذي يستخدمه البوت للعثور على المقطع وبثه. هذه الخدمات تديرها جهات أخرى ولها سياسات خصوصية خاصة بها. ولا نشارك بياناتك مع أي جهة غير ذلك.</p>
-
-<h2>5. حماية البيانات</h2>
-<p>نتخذ إجراءات معقولة لحماية القدر البسيط من البيانات الذي يتعامل معه البوت، ويقتصر الوصول إلى أنظمة البوت على المطوّر فقط. لا توجد طريقة تخزين أو نقل آمنة بنسبة 100%، لكن بما أن بيانات الأغاني تبقى في الذاكرة فقط وبيانات السيرفر تُحذف عند إزالة البوت، فإن ما يُحتفظ به قليل جداً.</p>
-
-<h2>6. حذف بياناتك</h2>
-<p>يستطيع مشرفو السيرفر إزالة البوت في أي وقت، وعندها يُحذف معرّف السيرفر ومعرّفات الرومات تلقائياً. أما بيانات طلبات الأغاني فتُحذف أصلاً بمجرد انتهاء التشغيل. وإذا كان لديك أي استفسار أو أردت طلب حذف أي بيانات، تواصل معنا عبر سيرفر الدعم (الرابط في الأسفل)، وسنرد عليك بأسرع وقت ممكن، وخلال 30 يوماً كحد أقصى.</p>
-
-<h2>7. شرط العمر</h2>
-<p>البوت موجّه لمن يستوفي الحد الأدنى للعمر الذي تشترطه ديسكورد في بلده. ولا نجمع عن قصد أي بيانات من أي شخص غير ما هو موضح في هذه السياسة.</p>
-
-<h2>8. التعديلات على هذه السياسة</h2>
-<p>قد نحدّث هذه السياسة من وقت لآخر، وعندها سنغيّر تاريخ «آخر تحديث» في أعلى الصفحة ونعلن عن التغييرات المهمة في سيرفر الدعم. واستمرارك في استخدام البوت بعد التعديل يعني موافقتك على السياسة المحدّثة.</p>
-
-<h2>9. التواصل</h2>
-<p>لأي استفسار عن هذه السياسة أو عن بياناتك، انضم إلى سيرفر الدعم: <a class="support-link" href="https://discord.gg/touch-s" rel="noopener" dir="ltr">https://discord.gg/touch-s</a></p>
-</article>
+<!-- Main Privacy Content -->
+<main class="flex-1 max-w-3xl w-full mx-auto px-4 py-8 relative z-10 flex flex-col gap-8 pb-20" id="privacy-container">
+    <!-- Injected via Script -->
 </main>
-<footer data-lang="en"><span>© 2026 Touch'sPlay</span><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a class="support-link" href="https://discord.gg/touch-s" rel="noopener">Support server</a><span>Not affiliated with Discord Inc.</span></footer><footer data-lang="ar" hidden><span>© 2026 Touch'sPlay</span><a href="terms.html">الشروط</a><a href="privacy.html">الخصوصية</a><a class="support-link" href="https://discord.gg/touch-s" rel="noopener">سيرفر الدعم</a><span>غير تابع لشركة Discord Inc.</span></footer>
+
+<!-- Footer -->
+<footer class="mt-auto border-t border-[#30363d]/50 bg-[#161b22]/40 py-6 relative z-10 text-center">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#9ca3af]">
+        <p>© <span id="current-year">2026</span> Veonb Shield & BlockBot. All Rights Reserved.</p>
+        <p class="flex items-center gap-1">
+            <span id="txt-footer-made">Made with</span>
+            <i data-lucide="heart" class="w-3 h-3 text-red-500 fill-red-500"></i>
+            <span id="txt-footer-for">for secure community servers</span>
+        </p>
+    </div>
+</footer>
+
 <script>
-(function(){
-  var KEY='touchsplay-lang', root=document.documentElement;
-  function pick(){
-    try{var q=new URLSearchParams(location.search).get('lang'); if(q==='ar'||q==='en') return q;}catch(e){}
-    try{var s=localStorage.getItem(KEY); if(s==='ar'||s==='en') return s;}catch(e){}
-    return String(navigator.language||'en').toLowerCase().indexOf('ar')===0?'ar':'en';
-  }
-  function apply(l){
-    root.lang=l; root.dir=(l==='ar'?'rtl':'ltr');
-    var els=document.querySelectorAll('[data-lang]');
-    for(var i=0;i<els.length;i++){ els[i].hidden = els[i].getAttribute('data-lang')!==l; }
-    var bs=document.querySelectorAll('[data-set-lang]');
-    for(var j=0;j<bs.length;j++){ bs[j].setAttribute('aria-pressed', String(bs[j].getAttribute('data-set-lang')===l)); }
-    var t=root.getAttribute('data-title-'+l); if(t) document.title=t;
-  }
-  var bs=document.querySelectorAll('[data-set-lang]');
-  for(var k=0;k<bs.length;k++){
-    bs[k].addEventListener('click',function(){
-      var l=this.getAttribute('data-set-lang'); apply(l);
-      try{localStorage.setItem(KEY,l);}catch(e){}
-    });
-  }
-  apply(pick());
-})();
+    let currentLang = localStorage.getItem('bot_lang') || 'en';
+    const botName = 'Veonb Shield & BlockBot';
+
+    const privacyData = {
+        en: {
+            backBtn: "Back to Hub",
+            lastUpdated: "Last updated:",
+            dateStr: "June 11, 2026",
+            headerTitle: "Privacy Policy for " + botName,
+            intro: "We take the privacy and security of our users very seriously. This page clearly drafts how the bot handles, protects, and utilizes data to deliver our advanced automation, block systems, and real-time protection shields.",
+            
+            sec1Title: "1. The Data We Collect & Store",
+            sec1Desc: "To operate our fully automated moderation and shield systems, the bot ONLY stores minimum descriptive metadata in our secure MongoDB database:",
+            sec1Bullets: [
+                "Discord User IDs: Required to uniquely identify members and manage their active ban/block states.",
+                "Discord Role IDs: Used to accurately preserve and restore their original roles once punishment ends.",
+                "Log IDs & Punishment Logs: Kept to document active and historic action audits for server administrators."
+            ],
+
+            sec2Title: "2. Crucial Note on Message Content",
+            sec2Desc: "The bot temporarily processes deleted message content strictly and in real-time to relay it to the secure internal backup logging channels within your Discord server.",
+            sec2Highlight: "CRUCIAL NOTE: Absolutely NO message content is ever saved, extracted, or stored in our MongoDB or any external databases. Native text processing is transient, staying only in warm memory, and is discarded immediately after transmitting to your server.",
+
+            sec3Title: "3. How We Use the Data",
+            sec3Desc: "Stored descriptive metadata is strictly restricted to facilitating the server safety automation workflows:",
+            sec3Points: [
+                { title: "Temporary Punishment Lifecycles:", text: "Tracking block durations and expiration intervals so the bot can automatically restore the user's original server permissions at the exact scheduled timestamp without human intervention." },
+                { title: "Anti-Abuse Shield System:", text: "Monitoring server-side role changes in real-time to detect, rollback, and prevent any unauthorized manual role adjustments bypasses." }
+            ],
+
+            sec4Title: "4. Data Storage & Security",
+            sec4Desc: "All logged metadata resides safely within isolated sandboxes adhering to industry-leading standards:",
+            sec4Bullets: [
+                "We DO NOT (and will never) use collected metadata to train artificial intelligence (AI) models.",
+                "We never sell, trade, rent, or share server metadata with any third parties.",
+                "Access to the MongoDB database is strictly private and authenticated exclusively for automated software operations."
+            ],
+
+            sec5Title: "5. User Rights & Data Removal",
+            sec5Desc: "We support your digital footprint ownership and right to clear personal telemetry:",
+            sec5Bullets: [
+                "Users and server administrators can request continuous, permanent deletion of their metadata and logs at any point free of charge.",
+                "To submit a swift data purging request, simply contact the verified bot developer directly via Discord."
+            ]
+        },
+        ar: {
+            backBtn: "العودة للرئيسية",
+            lastUpdated: "آخر تحديث:",
+            dateStr: "١١ يونيو ٢٠٢٦",
+            headerTitle: "سياسة الخصوصية لبوت " + botName,
+            intro: "نحن نأخذ خصوصية مستخدمينا وأمان بياناتهم بجدية تامة. توضح هذه الصفحة بوضوح وشفافية البيانات التي يتعامل معها البوت وكيفية حمايتها واستخدامها لتقديم نظام أتمتة العقوبات والدرع (Shield) بكفاءة.",
+            
+            sec1Title: "١. البيانات التي نجمعها ونخزنها",
+            sec1Desc: "لتشغيل نظام الحماية وإدارة البلوك بشكل مؤتمت بالكامل، يقوم البوت بتخزين الحد الأدنى فقط من البيانات التعريفية (Metadata) في قاعدة بيانات MongoDB الآمنة الخاصة بنا:",
+            sec1Bullets: [
+                "معرفات مستخدمي ديسكورد (Discord User IDs) لتحديد الأعضاء وتتبع حالات البلوك الخاصة بهم.",
+                "معرفات رتب ديسكورد (Role IDs) لاسترجاع وحفظ رتب الأعضاء المعاقبين بدقة.",
+                "معرفات السجلات وسجلات العقوبات (Log IDs) لتوثيق وتسهيل مراجعة العقوبات من طرف الإدارة."
+            ],
+
+            sec2Title: "٢. تنبيه هام جداً بخصوص محتوى الرسائل المحذوفة",
+            sec2Desc: "يقوم البوت بمعالجة محتوى الرسائل المحذوفة بشكل مؤقت وفوري فقط لإعادة توجيهها وإرسالها إلى خط السجلات الآمن (Backup Log Channel) داخل خادم الديسكورد الخاص بك لغرض الحماية والتوثيق.",
+            sec2Highlight: "نؤكد بشكل قاطع: لا يتم تخزين، حفظ، أو استخراج أي محتوى للرسائل على الإطلاق في قواعد بيانات MongoDB الخاصة بنا أو أي خوادم خارجية. المعالجة تتم في الذاكرة المؤقتة وتزول مباشرة فور تسليم الرسالة للقناة المحددة.",
+
+            sec3Title: "٣. كيف نستخدم هذه البيانات",
+            sec3Desc: "نحن نستخدم البيانات الوصفية المخزنة حصرياً للأغراض التشغيلية التالية للخدمات المشتركة داخل خادمك:",
+            sec3Points: [
+                { title: "دورة حياة العقوبات المؤقتة (Temporary Punishment Lifecycles):", text: "تتبع مدة البلوك وتاريخ الانتهاء المجدول، لكي يتمكن البوت تلقائياً من فك الحظر وإعادة رتب المستخدم الأصلية بمجرد انتهاء المدة بدون تدخل بشري." },
+                { title: "نظام الدرع للحماية من التلاعب (Anti-Abuse Shield System):", text: "مراقبة تحديثات الرتب في الخادم بشكل فوري لكشف ومنع أي محاولات يدوية غير مصرح بها لتخطي العقوبات أو إعادة الرتب يدوياً دون إذن لوحة التحكم." }
+            ],
+
+            sec4Title: "٤. تخزين البيانات وأمانها",
+            sec4Desc: "تخضع جميع البيانات الوصفية المخزنة في خوادمنا لتدابير حماية وأمان عالية:",
+            sec4Bullets: [
+                "لا يتم ولا يمكن استخدام بياناتك أبداً لتدريب أي نماذج ذكاء اصطناعي (AI Models).",
+                "نحن لا نبيع، ولا نؤجر، ولا نشارك أي بيانات مخزنة مع أي طرف ثالث على الإطلاق.",
+                "الوصول للقاعدة مشفر ومحصور فقط بنظام البوت للقيام بمهام الحماية التلقائية."
+            ],
+
+            sec5Title: "٥. حقوق المستخدم وحذف البيانات",
+            sec5Desc: "نحن ندعم حقك الكامل في الخصوصية والتحكم في بياناتك الرقمية:",
+            sec5Bullets: [
+                "يمكن للأعضاء ومسؤولي الخوادم في أي وقت طلب حذف كافة البيانات الوصفية والسجلات الخاصة بهم من قاعدة البيانات.",
+                "لطلب الحذف الفوري لبياناتك، يرجى التواصل مباشرة مع المطور المسؤول عبر حساب الديسكورد الخاص به."
+            ]
+        }
+    };
+
+    function renderPrivacy() {
+        const root = document.getElementById('html-root');
+        root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+        root.setAttribute('lang', currentLang);
+
+        const t = privacyData[currentLang];
+        document.getElementById('txt-lang-btn').innerText = currentLang === 'en' ? 'العربية' : 'English';
+        document.getElementById('txt-back').innerText = t.backBtn;
+        document.getElementById('back-icon').setAttribute('data-lucide', currentLang === 'ar' ? 'arrow-right' : 'arrow-left');
+
+        let pB1 = t.sec1Bullets.map(b => `<li class="flex gap-2.5 items-start text-sm text-[#9ca3af]"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i><span>${b}</span></li>`).join('');
+        let pPts = t.sec3Points.map(pt => `
+            <div class="p-4 bg-[#21262d] rounded-xl border border-[#30363d]/40 flex flex-col gap-2">
+                <h3 class="text-sm font-bold text-white flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span>${pt.title}</span></h3>
+                <p class="text-xs text-[#9ca3af] leading-relaxed">${pt.text}</p>
+            </div>
+        `).join('');
+        let pB4 = t.sec4Bullets.map(b => `<li class="flex gap-2.5 items-start text-sm text-[#9ca3af]"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i><span>${b}</span></li>`).join('');
+        let pB5 = t.sec5Bullets.map(b => `<li class="flex gap-2.5 items-start text-sm text-[#9ca3af]"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i><span>${b}</span></li>`).join('');
+
+        document.getElementById('privacy-container').innerHTML = `
+            <div class="text-center md:text-right flex flex-col gap-3">
+                <div class="w-12 h-12 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto md:mx-0 mb-2 border border-blue-500/30 text-blue-400">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <h1 class="text-3xl font-extrabold text-white tracking-tight leading-relaxed">${t.headerTitle}</h1>
+                <p class="text-sm text-[#9ca3af] flex items-center justify-center md:justify-start gap-1.5">
+                    <span class="font-semibold">${t.lastUpdated}</span>
+                    <span class="text-white/80 font-mono text-xs">${t.dateStr}</span>
+                </p>
+                <p class="text-sm text-[#9ca3af] leading-relaxed bg-[#161b22]/40 p-4 rounded-xl border border-[#30363d]/30 mt-3">${t.intro}</p>
+            </div>
+
+            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-400"></i><span>${t.sec1Title}</span></h2>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec1Desc}</p>
+                <ul class="flex flex-col gap-3">${pB1}</ul>
+            </div>
+
+            <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 shadow-sm flex flex-col gap-4 relative overflow-hidden">
+                <h2 class="text-lg font-bold text-red-400 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 animate-pulse"></i><span>${t.sec2Title}</span></h2>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec2Desc}</p>
+                <div class="p-4 bg-red-500/10 border-l-4 border-red-500/50 rounded-lg text-sm text-white/90 font-medium leading-relaxed">${t.sec2Highlight}</div>
+            </div>
+
+            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="shield" class="w-4 h-4 text-blue-400"></i><span>${t.sec3Title}</span></h2>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec3Desc}</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">${pPts}</div>
+            </div>
+
+            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i><span>${t.sec4Title}</span></h2>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec4Desc}</p>
+                <ul class="flex flex-col gap-3">${pB4}</ul>
+            </div>
+
+            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="trash-2" class="w-4 h-4 text-blue-400"></i><span>${t.sec5Title}</span></h2>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec5Desc}</p>
+                <ul class="flex flex-col gap-3">${pB5}</ul>
+            </div>
+        `;
+        lucide.createIcons();
+    }
+
+    function toggleLang() {
+        currentLang = currentLang === 'en' ? 'ar' : 'en';
+        localStorage.setItem('bot_lang', currentLang);
+        renderPrivacy();
+    }
+
+    document.getElementById('current-year').innerText = new Date().getFullYear();
+    renderPrivacy();
 </script>
-</body>
-</html>
