@@ -1,185 +1,135 @@
-<!-- Background Accent -->
-<div class="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-blue-500/5 to-transparent pointer-events-none"></div>
-
-<!-- Header Navigation -->
-<header class="sticky top-0 bg-[#0d1117]/80 backdrop-blur-md border-b border-[#30363d]/50 z-30">
-    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-white transition-all hover:bg-white/5 px-3 py-1.5 rounded-lg border border-transparent hover:border-[#30363d]/40">
-            <i data-lucide="arrow-left" id="back-icon" class="w-4 h-4"></i>
-            <span id="txt-back">Main Hub</span>
-        </a>
-        
-        <button onclick="toggleLang()" class="flex items-center gap-2 text-xs text-blue-400 hover:text-blue-300 font-bold transition-all bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-lg cursor-pointer">
-            <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-            <span id="txt-lang-btn">العربية</span>
-        </button>
-    </div>
-</header>
-
-<!-- Main Terms Content -->
-<main class="flex-1 max-w-3xl w-full mx-auto px-4 py-8 relative z-10 flex flex-col gap-8 pb-20" id="terms-container">
-    <!-- Injected via Script -->
-</main>
-
-<!-- Footer -->
-<footer class="mt-auto border-t border-[#30363d]/50 bg-[#161b22]/40 py-6 relative z-10 text-center">
-    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#9ca3af]">
-        <p>© <span id="current-year">2026</span> Veonb Shield & BlockBot. All Rights Reserved.</p>
-        <p class="flex items-center gap-1">
-            <span id="txt-footer-made">Made with</span>
-            <i data-lucide="heart" class="w-3 h-3 text-red-500 fill-red-500"></i>
-            <span id="txt-footer-for">for secure community servers</span>
-        </p>
-    </div>
-</footer>
-
-<script>
-    let currentLang = localStorage.getItem('bot_lang') || 'en';
-    const botName = 'Veonb Shield & BlockBot';
-
-    const termsData = {
-        en: {
-            backBtn: "Back to Hub",
-            lastUpdated: "Last updated:",
-            dateStr: "June 11, 2026",
-            headerTitle: "Terms of Service for " + botName,
-            intro: "Please read these terms carefully before inviting or interacting with the bot in your servers. These Terms govern your use and legal responsibilities with our system automation.",
-            
-            sec1Title: "1. Acceptance of Terms",
-            sec1Desc: "By inviting, interacting with, or using the bot within your Discord server, you explicitly agree to these terms as well as Discord's official Terms of Service (Discord ToS). If you do not agree to any part of these terms, please remove the bot from your server immediately.",
-
-            sec2Title: "2. Description of Service",
-            sec2Desc: "The bot provides automated tools and security systems tailored to preserve community safety:",
-            sec2Bullets: [
-                "Advanced server protection mechanism (Anti-Nuke system / Shield).",
-                "Automatic punishment tracking and seamless server role restorations.",
-                "Internal message backup logging systems strictly intended to archive internal security events for moderators."
-            ],
-
-            sec3Title: "3. Acceptable Use",
-            sec3Desc: "As a user or server administrator, you must adhere to healthy usage frameworks:",
-            sec3Bullets: [
-                "You must not abuse command metrics, spam queries, or try to flood our backend servers.",
-                "No attempts to bypass security shields, permission restrictions, or reverse-engineer systems are allowed.",
-                "You must not use the bot for malicious, illegal, or unauthorized setups targeting any member."
-            ],
-
-            sec4Title: "4. Data & Privacy",
-            sec4Desc: "Your active usage of our system is also completely subject to and governed by our Privacy Policy. We process minimum necessary metadata to function and verify server authenticity, and we do not extract, sell, or rent user data.",
-
-            sec5Title: "5. Limitation of Liability",
-            sec5Desc: "The bot services are deployed on a fully standard architecture without external guarantees:",
-            sec5Highlight: "CRUCIAL NOTE: The bot is provided strictly on an \"AS IS\" and \"AS AVAILABLE\" basis, without any warranties. The developer and operators represent no liability for any server damages, unintended role modifications, data losses, or moderation audit errors resulting from bot commands or functions.",
-
-            sec6Title: "6. Termination of Service",
-            sec6Desc: "We retain the fully exclusive right to permanently restrict, suspend, or revoke access of the bot inside any server, or block specific user permissions at our sole discretion, at any time, for any reason, without prior notice."
-        },
-        ar: {
-            backBtn: "العودة للرئيسية",
-            lastUpdated: "آخر تحديث:",
-            dateStr: "١١ يونيو ٢٠٢٦",
-            headerTitle: "شروط الخدمة لبوت " + botName,
-            intro: "يرجى قراءة شروط الخدمة هذه بعناية تامة قبل استخدام البوت أو دعوته لخادمك. تحدد هذه الشروط حقوقك والتزاماتك القانونية عند استخدام البوت لتأمين خادمك وإدارة الصلاحيات تلقائياً.",
-            
-            sec1Title: "١. قبول الشروط",
-            sec1Desc: "عبر دعوة البوت، أو التفاعل معه، أو استخدامه في خادم ديسكورد الخاص بك، فإنك توافق صراحة وبشكل قاطع على الالتزام بشروط الخدمة هذه بالإضافة إلى شروط خدمة ديسكورد الرسمية (Discord ToS). إذا كنت لا توافق على هذه الشروط، يرجى إزالة البوت من خادمك فوراً.",
-
-            sec2Title: "٢. وصف الخدمة",
-            sec2Desc: "يوفر بوتنا خدمات أمنية متكاملة تهدف إلى الحفاظ على استقرار وحماية مجتمعك:",
-            sec2Bullets: [
-                "نظام حماية من التخريب والتهكير (Anti-Nuke system / Shield).",
-                "نظام أتمتة العقوبات والتحكم الحازم بالرتب والصلاحيات لتسهيل الإدارة.",
-                "نظام نسخ احتياطي وسجلات فورية internal لتوثيق الرسائل والعمليات الأمنية لحماية وتأمين الخادم."
-            ],
-
-            sec3Title: "٣. الاستخدام المقبول",
-            sec3Desc: "بصفتك مستخدماً أو مسؤول خادم، تلتزم بالاستخدام العادل والآمن للبوت:",
-            sec3Bullets: [
-                "يُمنع منعاً باتاً إساءة استخدام أوامر البوت، أو التسبب في ضغط غير مبرر على خوادمنا.",
-                "يُمنع محاولة تخطي أو التحايل على أنظمة الدرع الأمني أو الثغرات في الأذونات.",
-                "يُمنع استخدام البوت لأي غرض خبيث، أو غير قانوني، أو غير مصرح به قد يضر بسلامة الشبكة أو مستخدميها."
-            ],
-
-            sec4Title: "٤. دقة البيانات والخصوصية",
-            sec4Desc: "البيانات التي يقوم البوت بنقلها أو معالجتها أو الوصول إليها تخضع بالكامل لأحكام سياسة الخصوصية الخاصة بها. نحن لا نقوم بجمع أو استخراج أو بيع أي بيانات وصفية خارج النطاق التشغيلي المقترن بأمان وسلامة خادمك.",
-
-            sec5Title: "٥. إخلاء المسؤولية المحدودة (هام جداً)",
-            sec5Desc: "يتم تقديم الخدمة بشكل كامل \"كما هي\" ودون أي ضمانات صريحة أو ضمنية من أي نوع:",
-            sec5Highlight: "تنصل رسمي: لا يتحمل المطور أو الجهة المشغلة للبوت أي مسؤولية على الإطلاق عن أي أضرار قد تلحق بالخادم، أو تعديلات غير مقصودة في الرتب والأذونات، أو فقدان لبيانات السجلات، أو أخطاء إدارية أو تقنية ناتجة عن تشغيل البوت التلقائي أو استخدامه.",
-
-            sec6Title: "٦. إنهاء وتحجيم الخدمة",
-            sec6Desc: "نحتفظ بالحق الكامل، ووفقاً لتقديرنا المطلق، في تقييد الوصول إلى البوت، أو تعليقه، أو إلغاء صلاحية استخدامه في أي خادم أو من قِبل أي مستخدم محدد في أي وقت، ولأي سبب، ودون توجيه إشعار مسبق."
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - BlockBot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#0b0f19',
+            'bg-secondary': '#111827',
+            'bg-card': '#1f2937',
+            'text-primary': '#f9fafb',
+            'text-secondary': '#9ca3af',
+            'accent': '#6366f1',
+            'accent-hover': '#4f46e5',
+            'danger': '#ef4444',
+            'border': '#374151'
+          }
         }
-    };
-
-    function renderTerms() {
-        const root = document.getElementById('html-root');
-        root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-        root.setAttribute('lang', currentLang);
-
-        const t = termsData[currentLang];
-        document.getElementById('txt-lang-btn').innerText = currentLang === 'en' ? 'العربية' : 'English';
-        document.getElementById('txt-back').innerText = t.backBtn;
-        document.getElementById('back-icon').setAttribute('data-lucide', currentLang === 'ar' ? 'arrow-right' : 'arrow-left');
-
-        let b2 = t.sec2Bullets.map(b => `<li class="flex gap-2.5 items-start text-sm text-[#9ca3af]"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i><span>${b}</span></li>`).join('');
-        let b3 = t.sec3Bullets.map(b => `<li class="flex gap-2.5 items-start text-sm text-[#9ca3af]"><i data-lucide="shield-alert" class="w-4 h-4 text-blue-400/80 shrink-0 mt-0.5"></i><span>${b}</span></li>`).join('');
-
-        document.getElementById('terms-container').innerHTML = `
-            <div class="text-center md:text-right flex flex-col gap-3">
-                <div class="w-12 h-12 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto md:mx-0 mb-2 border border-blue-500/30 text-blue-400">
-                    <i data-lucide="gavel" class="w-6 h-6"></i>
-                </div>
-                <h1 class="text-3xl font-extrabold text-white tracking-tight leading-relaxed">${t.headerTitle}</h1>
-                <p class="text-sm text-[#9ca3af] flex items-center justify-center md:justify-start gap-1.5">
-                    <span class="font-semibold">${t.lastUpdated}</span>
-                    <span class="text-white/80 font-mono text-xs">${t.dateStr}</span>
-                </p>
-                <p class="text-sm text-[#9ca3af] leading-relaxed bg-[#161b22]/40 p-4 rounded-xl border border-[#30363d]/30 mt-3">${t.intro}</p>
-            </div>
-
-            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-blue-400"></i><span>${t.sec1Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec1Desc}</p>
-            </div>
-
-            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="shield" class="w-4 h-4 text-blue-400"></i><span>${t.sec2Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec2Desc}</p>
-                <ul class="flex flex-col gap-3">${b2}</ul>
-            </div>
-
-            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="x-circle" class="w-4 h-4 text-blue-400"></i><span>${t.sec3Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec3Desc}</p>
-                <ul class="flex flex-col gap-3">${b3}</ul>
-            </div>
-
-            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-400"></i><span>${t.sec4Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec4Desc}</p>
-            </div>
-
-            <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 shadow-sm flex flex-col gap-4 relative overflow-hidden">
-                <h2 class="text-lg font-bold text-red-400 flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 animate-pulse"></i><span>${t.sec5Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec5Desc}</p>
-                <div class="p-4 bg-red-500/10 border-l-4 border-red-500/50 rounded-lg text-sm text-white/90 font-medium leading-relaxed">${t.sec5Highlight}</div>
-            </div>
-
-            <div class="bg-[#161b22]/70 border border-[#30363d]/50 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
-                <h2 class="text-lg font-bold text-white flex items-center gap-2"><i data-lucide="refresh-cw" class="w-4 h-4 text-blue-400"></i><span>${t.sec6Title}</span></h2>
-                <p class="text-sm text-[#9ca3af] leading-relaxed">${t.sec6Desc}</p>
-            </div>
-        `;
-        lucide.createIcons();
+      }
     }
+  </script>
+</head>
+<body class="min-h-screen bg-[#0b0f19] text-[#f9fafb] font-sans flex flex-col selection:bg-indigo-500/30">
+  
+  <!-- Header Nav -->
+  <header class="sticky top-0 bg-[#0b0f19]/80 backdrop-blur-md border-b border-gray-800 z-30">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-all bg-white/5 px-3 py-1.5 rounded-lg border border-transparent hover:border-gray-700">
+        <span>← Back to Home</span>
+      </a>
+      <span class="text-xs font-mono text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1.5 rounded-lg">
+        Terms of Service
+      </span>
+    </div>
+  </header>
 
-    function toggleLang() {
-        currentLang = currentLang === 'en' ? 'ar' : 'en';
-        localStorage.setItem('bot_lang', currentLang);
-        renderTerms();
-    }
+  <!-- Main Content -->
+  <main class="flex-1 max-w-3xl w-full mx-auto px-4 py-8 flex flex-col gap-8 pb-20">
+    <div class="text-left flex flex-col gap-3">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight leading-relaxed">
+        Terms of Service for BlockBot
+      </h1>
+      <p class="text-sm text-gray-400">
+        <span class="font-semibold">Last updated:</span> <span class="text-white/80 font-mono text-xs">June 11, 2026</span>
+      </p>
+      <p class="text-sm text-gray-300 leading-relaxed bg-gray-900/40 p-4 rounded-xl border border-gray-800 mt-3">
+        Please read these terms carefully before inviting or interacting with the bot in your servers. These Terms govern your use and legal responsibilities with our system automation.
+      </p>
+    </div>
 
-    document.getElementById('current-year').innerText = new Date().getFullYear();
-    renderTerms();
-</script>
+    <!-- Section 1 -->
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        <span class="text-indigo-400">1.</span> Acceptance of Terms
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        By inviting, interacting with, or using the bot within your Discord server, you explicitly agree to these terms as well as Discord's official Terms of Service (Discord ToS). If you do not agree to any part of these terms, please remove the bot from your server immediately.
+      </p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        <span class="text-indigo-400">2.</span> Description of Service
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        The bot provides automated tools and security systems tailored to preserve community safety:
+      </p>
+      <ul class="flex flex-col gap-3 text-sm text-gray-300">
+        <li class="flex gap-2.5 items-start">✓ Advanced server protection mechanism (Anti-Nuke system / Shield).</li>
+        <li class="flex gap-2.5 items-start">✓ Automatic punishment tracking and seamless server role restorations.</li>
+        <li class="flex gap-2.5 items-start">✓ Internal message backup logging systems strictly intended to archive internal security events for moderators.</li>
+      </ul>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        <span class="text-indigo-400">3.</span> Acceptable Use
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        As a user or server administrator, you must adhere to healthy usage frameworks:
+      </p>
+      <ul class="flex flex-col gap-3 text-sm text-gray-300">
+        <li class="flex gap-2.5 items-start">• You must not abuse command metrics, spam queries, or try to flood our backend servers.</li>
+        <li class="flex gap-2.5 items-start">• No attempts to bypass security shields, permission restrictions, or reverse-engineer systems are allowed.</li>
+        <li class="flex gap-2.5 items-start">• You must not use the bot for malicious, illegal, or unauthorized setups targeting any member.</li>
+      </ul>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        <span class="text-indigo-400">4.</span> Data & Privacy
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        Your active usage of our system is also completely subject to and governed by our Privacy Policy. We process minimum necessary metadata to function and verify server authenticity, and we do not extract, sell, or rent user data.
+      </p>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-red-400 flex items-center gap-2">
+        ⚠️ 5. Limitation of Liability
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        The bot services are deployed on a fully standard architecture without external guarantees:
+      </p>
+      <div class="p-4 bg-red-500/10 border-l-4 border-red-500/50 rounded-lg text-sm text-white/90 font-medium leading-relaxed">
+        CRUCIAL NOTE: The bot is provided strictly on an "AS IS" and "AS AVAILABLE" basis, without any warranties. The developer and operators represent no liability for any server damages, unintended role modifications, data losses, or moderation audit errors resulting from bot commands or functions.
+      </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2">
+        <span class="text-indigo-400">6.</span> Termination of Service
+      </h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        We retain the fully exclusive right to permanently restrict, suspend, or revoke access of the bot inside any server, or block specific user permissions at our sole discretion, at any time, for any reason, without prior notice.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-gray-800 bg-gray-900/40 py-6 text-center text-xs text-gray-400">
+    <p>© 2026 BlockBot. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
